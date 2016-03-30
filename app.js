@@ -31,5 +31,5 @@ if(isHashPresent()) {
   //})
 } else {
   $('.sign-in-view').show();
-  //$('.image-results-view').hide();
+  $('.image-results-view').hide();
 }
