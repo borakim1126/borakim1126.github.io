@@ -5,7 +5,7 @@ window.onload = function(){
     console.log(arguments);
   };
   clickMe.on("click",function(e){
-    e.preventdefault();
+    e.preventDefault();
     PDK.login({
       scope:'read_public'
     }, callback);
