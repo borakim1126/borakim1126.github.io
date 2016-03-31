@@ -1,9 +1,10 @@
 
 
 var clickMe = $(".btn-default")
+var callback;
 clickMe.on("click",function(e){
  // e.preventdefault();
-  PDK.login({scope: 'read_public'})})
+  PDK.login({scope:'read_public', callback})})
 
 
 function isHashPresent() {
