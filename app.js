@@ -12,6 +12,9 @@ $(function(){
   var callback = function(resp){
     if(resp.error){
       console.error(resp.error);
+      if(resp.session){
+        $('.sign-in-view').hide();
+      }
     } else if(resp.session) {
       console.info(resp.session);
       $('.sign-in-view').hide();
