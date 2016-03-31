@@ -1,5 +1,5 @@
 function isHashPresent() {
-  if(window.location.hash == "") {
+  if(window.location.search == "") {
     return false;
   } else {
     return true;
