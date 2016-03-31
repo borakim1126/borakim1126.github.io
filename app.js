@@ -1,12 +1,14 @@
 window.onload = function(){
 
   var clickMe = $(".btn-default")
-  var callback;
+  var callback = function(){
+    console.log(arguments);
+  };
   clickMe.on("click",function(e){
-   // e.preventdefault();
+    e.preventdefault();
     PDK.login({
       scope:'read_public'
-    })
+    }, callback);
   });
 
 
