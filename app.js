@@ -4,7 +4,10 @@ window.onload = function(){
   var callback;
   clickMe.on("click",function(e){
    // e.preventdefault();
-    PDK.login({scope:'read_public', callback})});
+    PDK.login({
+      scope:'read_public', callback
+    })
+  });
 
 
   function isHashPresent() {
