@@ -17,7 +17,7 @@ $(function(){
     }
   };
 
-  if(PDK.getSession().accessToken!){
+  if(!PDK.getSession().accessToken){
      $('.image-results-view').hide();
   } else {
      //do your thing
