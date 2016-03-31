@@ -1,8 +1,11 @@
-window.onload = function(){
-
+$(function(){
   var clickMe = $(".btn-default")
-  var callback = function(){
-    console.log(arguments);
+  var callback = function(err, data){
+    if(err){
+      console.error(err);
+    } else {
+      console.info(data);
+    }
   };
   clickMe.on("click",function(e){
     e.preventDefault();
@@ -35,4 +38,4 @@ window.onload = function(){
 // ○ Shoppable pins
 //  ○ Order by number of pins / likes
  
-}
+});
