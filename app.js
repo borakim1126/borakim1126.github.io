@@ -1,4 +1,4 @@
-window.onload = function{
+window.onload = function() {
 
   var clickMe = $(".btn-default")
   var callback;
