@@ -1,3 +1,11 @@
+
+
+var clickMe = $(".btn-default")
+clickMe.on("click",function(e){
+ // e.preventdefault();
+  PDK.login({scope: 'read_public'})})
+
+
 function isHashPresent() {
   if(window.location.search == "") {
     return false;
