@@ -14,6 +14,8 @@ $(function(){
       console.error(resp.error);
     } else if(resp.session) {
       console.info(resp.session);
+      $('.sign-in-view').hide();
+
     }
   };
 
