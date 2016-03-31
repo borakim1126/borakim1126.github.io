@@ -1,12 +1,7 @@
 $(function(){
+  
   var clickMe = $(".btn-default")
-  var callback = function(err, data){
-    if(err){
-      console.error(err);
-    } else {
-      console.info(data);
-    }
-  };
+
   clickMe.on("click",function(e){
     e.preventDefault();
     PDK.login({
@@ -14,23 +9,21 @@ $(function(){
     }, callback);
   });
 
-
-  function isHashPresent() {
-    if(window.location.search == "") {
-      return false;
-    } else {
-      return true;
+  var callback = function(resp){
+    if(resp.error){
+      console.error(resp.error);
+    } else if(resp.session) {
+      console.info(resp.session);
     }
-  }
-  if(isHashPresent()) {
-     $('.sign-in-view').hide();
-      var accessToken = window.location.search.replace('?state=768uyFys&code=', '')
-      var url = "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4826032574203707802&client_secret=956a6143b1e798674eecdb4e5e9c1b58f9cadfcc6f2fd02094116ab8a0b2630d&code="+accessToken;
+  };
 
-      
+  var token = PDK.getSession();
+  if(token.accessToken){
+     $('.sign-in-view').hide();
   } else {
-    $('.sign-in-view').show();
-    $('.image-results-view').hide();
+    //do your thing
+    var url = "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4826032574203707802&client_secret=956a6143b1e798674eecdb4e5e9c1b58f9cadfcc6f2fd02094116ab8a0b2630d&code="+token;
+    
   }
 
 
