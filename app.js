@@ -18,7 +18,6 @@ $(function(){
     } else if(resp.session) {
       console.info(resp.session);
       $('.sign-in-view').hide();
-
     }
   };
 
@@ -27,12 +26,18 @@ $(function(){
     $('.sign-in-view').hide();
     var token = PDK.getSession();
     var url = "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4826032574203707802&client_secret=956a6143b1e798674eecdb4e5e9c1b58f9cadfcc6f2fd02094116ab8a0b2630d&code="+token.accessToken;
-
   } else {
          $('.image-results-view').hide();
   }
+
+  $('#search').on("click",function(e){
+    e.preventDefault();
+    alert("button pressed")
+  })
+
+
 //  ○ Search Pinterest posts by hastag / poster / board /color
-// ○ Shoppable pins
+//  ○ Shoppable pins?
 //  ○ Order by number of pins / likes
  
 });
