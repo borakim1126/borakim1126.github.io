@@ -1,70 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Pinterest Shopper</title>
 
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <!-- css -->
-  <link rel="stylesheet" href="style.css">
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <!-- load Pinterest JS SDK -->
-  <script>
-    window.pAsyncInit = function() {
-        PDK.init({
-            appId: "4826032574203707802", // Change this
-            cookie: true
-        });
-    };
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    (function(d, s, id){
-        var js, pjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//assets.pinterest.com/sdk/sdk.js";
-        pjs.parentNode.insertBefore(js, pjs);
-    }(document, 'script', 'pinterest-jssdk'));
-</script>
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- load Pinterest JS SDK -->
+    <script>
+      window.pAsyncInit = function() {
+          PDK.init({
+              appId: "4826032574203707802", // Change this
+              cookie: true
+          });
+      };
+      (function(d, s, id){
+          var js, pjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//assets.pinterest.com/sdk/sdk.js";
+          pjs.parentNode.insertBefore(js, pjs);
+      }(document, 'script', 'pinterest-jssdk'));
+  </script>
 
 </head>
+
 <body>
 
-  <div class="container-fluid sign-in-view">
+  <div class="container-fluid text-center sign-in-view">
     <div class="row text-center">
       <h1>Want to find things you can buy?</h1>
-      <button class="btn btn-default">
 
-       
-       <!-- <a href="https://api.instagram.com/oauth/authorize/?client_id=97f6716d66614a078efd2fde3d0a9f3b&redirect_uri=http://localhost:3000&response_type=token">
-		-->
-      <!-- https://api.pinterest.com/oauth/?response_type=code&redirect_uri=https://borakim1126.github.io/&client_id=4826032574203707802&scope=read_public,write_public&state=768uyFys -->
-        <a id="click-me" href="#">
-        Click Here
+      <button class="btn btn-signIn">
+        <a id="log in" href="#">
+        Click Here to login
+        </a>
+      </button>
+    </div>
+  </div>
+
+  <div class="container-fluid text-center signed-in-view">
+    <div class="row text-center">
+      <span> </span>
+    <button class="btn btn-signOut">
+        <a id="logOut" href="#">
+        Click Here to Log Out
         </a>
       </button>
     </div>
   </div>
 
   <div class="container-fluid text-center image-results-view">
-    <h1>Input some criteria for your search:</h1>
-   		<form id="hashtag" method="post">
-	 		<input name="hashtag" placeholder="hashtag to search for" />
-	  		<input type="submit" value="search" />
-		</form>
-		<form id="user" method="post">
-	 		<input name="username" placeholder="pinner to search for" />
-	  		<input type="submit" id="search" />
-		</form>
-		<form id="board" method="post">
-	 		<input name="board" placeholder="name of board to search for" />
-	  		<input type="submit" value="search" />
-		</form>
-		<form id="color" method="post">
-	 		<input name="color" placeholder="color to search for" />
-	  		<input type="submit" value="search" />
-		</form>
-    <div class="images"></div>
+    <h1>Here are the pins you have pinned or liked:</h1>
+      <div class="container-fluid search-view">
+
+        Narrow your results down by board:
+          <select id = "board">
+            <option value=" ">   </option>
+          </select> <br>
+        Narrow your results down by poster:
+          <select id = "creator"> <br>
+            <option value=" ">   </option>
+          </select> <br>
+
+        <button class="likesBtn">
+          <a id="click-likes" href="#">
+          Sort by number of likes
+          </a>
+        </button>
+
+        <button class="repinsBtn">
+          <a id="click-repins" href="#">
+          Sort by number of repins
+          </a>
+        </button>
+
+        <button class="priceBtn">
+          <a id="click-price" href="#">
+          Sort by price (low to high)
+          </a>
+        </button>
+
+
+      </div>
+    <div id="resultsContainer">
+     
+
+    </div>
   </div>
 
   <!-- js -->
